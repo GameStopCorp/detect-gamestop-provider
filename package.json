@@ -9,8 +9,7 @@
   },
   "author": "",
   "license": "ISC",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/index.min.js",
   "devDependencies": {
     "@types/jest": "^27.4.0",
     "@types/sinon": "^10.0.11",
