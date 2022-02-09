@@ -1,0 +1,33 @@
+# GitLab CI config schema: https://docs.gitlab.com/ce/ci/yaml/index.html
+
+variables:
+  # This image has npm installed:
+  #   see: https://hub.docker.com/r/library/node/tags/
+  NODE_IMAGE: node:14.17.3
+
+stages:
+  - test
+
+# .base-job:
+#   image: $NODE_IMAGE
+#   before_script:
+#     - npm config set cache $NPM_CACHE --global
+#     - npm ci --prefer-offline
+
+test-job:
+  # extends: .base-job
+  image: $NODE_IMAGE
+  stage: test
+  script:
+    - npm install
+    - npm run test
+  #after_script:
+    # This is needed because GitLab is awful and gets confused by the source element in the coverage XML:
+    # - cat coverage/cobertura-coverage.xml | sed -e "s|$CI_PROJECT_DIR|.|g" > coverage/gitlab.xml
+  # artifacts:
+  #   when: always
+  #   paths:
+  #     - coverage/
+  #   reports:
+  #     cobertura: coverage/gitlab.xml
+  # coverage: /^Lines\s*:\s*([^%]+)/

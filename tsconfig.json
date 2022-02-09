@@ -1,0 +1,14 @@
+{
+    "include": ["./src/index.ts"],
+    "exclude": ["node_modules/*"],
+    "compilerOptions": {
+        "declaration": true,
+        "inlineSourceMap": true,
+        "typeRoots": ["node_modules/@types"],
+        "types": ["jest"],
+        "importsNotUsedAsValues": "preserve",
+        "noImplicitAny": false,
+        "outDir": "dist",
+        "target": "ES2015",
+    },
+}
