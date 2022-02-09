@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc src/index.ts && mv src/index.js dist/index.js && npm run minify",
     "minify": "uglifyjs --compress --mangle --output dist/index.min.js -- dist/index.js",
-    "test": "npx jest --runInBand && npx jest-it-up"
+    "test": "npx jest --runInBand"
   },
   "author": "",
   "license": "ISC",

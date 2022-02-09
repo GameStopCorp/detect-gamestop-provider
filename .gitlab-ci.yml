@@ -21,13 +21,13 @@ test-job:
   script:
     - npm install
     - npm run test
-  after_script:
+  #after_script:
     # This is needed because GitLab is awful and gets confused by the source element in the coverage XML:
-    - cat coverage/cobertura-coverage.xml | sed -e "s|$CI_PROJECT_DIR|.|g" > coverage/gitlab.xml
-  artifacts:
-    when: always
-    paths:
-      - coverage/
-    reports:
-      cobertura: coverage/gitlab.xml
-  coverage: /^Lines\s*:\s*([^%]+)/
+    # - cat coverage/cobertura-coverage.xml | sed -e "s|$CI_PROJECT_DIR|.|g" > coverage/gitlab.xml
+  # artifacts:
+  #   when: always
+  #   paths:
+  #     - coverage/
+  #   reports:
+  #     cobertura: coverage/gitlab.xml
+  # coverage: /^Lines\s*:\s*([^%]+)/
