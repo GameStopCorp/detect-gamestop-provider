@@ -16,7 +16,6 @@ const detectGmeProvider = (
   opts: DetectOpts = { timeout: 3000 }
 ): Promise<unknown> => {
   return new Promise((resolve) => {
-    console.log("yo");
     if (window.gme?.isGme) {
       resolve(window.gme);
       return;
