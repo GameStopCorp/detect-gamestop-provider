@@ -1,27 +1,27 @@
 interface Provider {
-  isGme?: boolean;
+  isGamestop?: boolean;
 }
 
 declare global {
   interface Window {
     ethereum?: Provider;
-    gme?: Provider;
+    gamestop?: Provider;
   }
 }
 
 interface DetectOpts {
   timeout: number;
 }
-const detectGmeProvider = (
+const detectGamestopProvider = (
   opts: DetectOpts = { timeout: 3000 }
 ): Promise<unknown> => {
   return new Promise((resolve) => {
-    if (window.gme?.isGme) {
-      resolve(window.gme);
+    if (window.gamestop?.isGamestop) {
+      resolve(window.gamestop);
       return;
     }
 
-    if (window.ethereum?.isGme) {
+    if (window.ethereum?.isGamestop) {
       resolve(window.ethereum);
       return;
     }
@@ -33,12 +33,12 @@ const detectGmeProvider = (
       handled = true;
       window.removeEventListener("ethereum#initialized", handle);
 
-      if (window.gme && window.gme.isGme) {
-        resolve(window.gme);
+      if (window.gamestop && window.gamestop.isGamestop) {
+        resolve(window.gamestop);
         return;
       }
 
-      if (window.ethereum?.isGme) {
+      if (window.ethereum?.isGamestop) {
         resolve(window.ethereum);
         return;
       }
@@ -53,4 +53,4 @@ const detectGmeProvider = (
   });
 };
 
-export default detectGmeProvider;
+export default detectGamestopProvider;

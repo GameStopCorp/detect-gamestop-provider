@@ -1,22 +1,20 @@
 import detectGmeProvider from "./index";
 
-import sinon from "sinon";
-
 interface Provider {
-  isGme?: boolean;
+  isGamestop?: boolean;
 }
 
 declare global {
   interface Window {
     ethereum?: Provider;
-    gme?: Provider;
+    gamestop?: Provider;
   }
 }
 
-describe("tests detectGmeProvider", () => {
-  it("detect window.ethereum.isGme = true", () => {
+describe("tests detectGamestopProvider", () => {
+  it("detect window.ethereum.isGamestop = true", () => {
     const provider = {
-      isGme: true,
+      isGamestop: true,
     };
 
     window.ethereum = provider;
@@ -25,43 +23,43 @@ describe("tests detectGmeProvider", () => {
     });
   });
 
-  it("detect window.gme.isGme = true", () => {
+  it("detect window.gamestop.isGamestop = true", () => {
     const provider = {
-      isGme: true,
+      isGamestop: true,
     };
 
-    window.gme = provider;
+    window.gamestop = provider;
     detectGmeProvider().then((p) => {
       expect(p).toStrictEqual(provider);
     });
   });
 
-  it("doesn't detect window.gme.isGme = false, times out with null", () => {
+  it("doesn't detect window.gamestop.isGamestop = false, times out with null", () => {
     const provider = {
-      isGme: false,
+      isGamestop: false,
     };
 
-    window.gme = provider;
+    window.gamestop = provider;
     detectGmeProvider({ timeout: 2000 }).then((p) =>
       expect(p).toStrictEqual(null)
     );
   });
 
-  it("detects window.gme.isGme after timeout", () => {
+  it("detects window.gamestop.isGamestop after timeout", () => {
     const provider = {
-      isGme: false,
+      isGamestop: false,
     };
     setTimeout(() => {
-      window.gme = provider;
+      window.gamestop = provider;
     }, 1500);
     detectGmeProvider({ timeout: 3000 }).then((p) =>
       expect(p).toStrictEqual(provider)
     );
   });
 
-  it("detects window.ethereum.isGme after timeout", () => {
+  it("detects window.ethereum.isGamestop after timeout", () => {
     const provider = {
-      isGme: false,
+      isGamestop: false,
     };
     setTimeout(() => {
       window.ethereum = provider;
@@ -71,9 +69,9 @@ describe("tests detectGmeProvider", () => {
     );
   });
 
-  it("doesn't detect window.ethereum.isGme = false", () => {
+  it("doesn't detect window.ethereum.isGamestop = false", () => {
     const provider = {
-      isGme: false,
+      isGamestop: false,
     };
 
     window.ethereum = provider;

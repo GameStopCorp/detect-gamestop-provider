@@ -5,8 +5,8 @@ var detectGmeProvider = function (opts) {
     return new Promise(function (resolve) {
         var _a, _b;
         console.log("yo");
-        if ((_a = window.gme) === null || _a === void 0 ? void 0 : _a.isGme) {
-            resolve(window.gme);
+        if ((_a = window.gamestop) === null || _a === void 0 ? void 0 : _a.isGme) {
+            resolve(window.gamestop);
             return;
         }
         if ((_b = window.ethereum) === null || _b === void 0 ? void 0 : _b.isGme) {
@@ -20,8 +20,8 @@ var detectGmeProvider = function (opts) {
                 return;
             handled = true;
             window.removeEventListener("ethereum#initialized", handle);
-            if (window.gme && window.gme.isGme) {
-                resolve(window.gme);
+            if (window.gamestop && window.gamestop.isGme) {
+                resolve(window.gamestop);
                 return;
             }
             if ((_a = window.ethereum) === null || _a === void 0 ? void 0 : _a.isGme) {

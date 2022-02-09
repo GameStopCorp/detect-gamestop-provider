@@ -1,7 +1,7 @@
 {
-  "name": "detect-gme-provider",
+  "name": "detect-gamestop-provider",
   "version": "1.0.0",
-  "description": "Detects GME Browse Wallet provider injection",
+  "description": "Detects Gamestop Browser Wallet provider injection",
   "scripts": {
     "build": "tsc src/index.ts && mv src/index.js dist/index.js && npm run minify",
     "minify": "uglifyjs --compress --mangle --output dist/index.min.js -- dist/index.js",
