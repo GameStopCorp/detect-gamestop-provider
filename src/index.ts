@@ -29,7 +29,7 @@ const detectGamestopProvider = (
     let handled;
 
     const handle = () => {
-      if (!handled) return;
+      if (handled) return;
       handled = true;
       window.removeEventListener("ethereum#initialized", handle);
 
