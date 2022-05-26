@@ -12,42 +12,43 @@ declare global {
 interface DetectOpts {
   timeout: number;
 }
+
 const detectGamestopProvider = (
   opts: DetectOpts = { timeout: 3000 }
 ): Promise<unknown> => {
   return new Promise((resolve) => {
-    if (window.gamestop?.isGamestop) {
-      resolve(window.gamestop);
-      return;
-    }
-
     if (window.ethereum?.isGamestop) {
       resolve(window.ethereum);
       return;
     }
 
-    let handled;
+    if (window.gamestop) {
+      resolve(window.gamestop);
+      return;
+    }
+
+    let handled: boolean = false;
 
     const handle = () => {
       if (handled) return;
       handled = true;
-      window.removeEventListener("ethereum#initialized", handle);
-
-      if (window.gamestop && window.gamestop.isGamestop) {
-        resolve(window.gamestop);
-        return;
-      }
+      window.removeEventListener("gamestop#initialized", handle);
 
       if (window.ethereum?.isGamestop) {
         resolve(window.ethereum);
         return;
       }
 
-      console.error("GME Browser Wallet not detected");
+      if (window.gamestop) {
+        resolve(window.gamestop);
+        return;
+      }
+
+      console.error("Gamestop Browser Wallet not detected");
       resolve(null);
     };
 
-    window.addEventListener("ethereum#initialized", handle);
+    window.addEventListener("gamestop#initialized", handle);
 
     setTimeout(handle, opts.timeout);
   });

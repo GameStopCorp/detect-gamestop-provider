@@ -12,6 +12,11 @@ declare global {
 }
 
 describe("tests detectGamestopProvider", () => {
+  beforeEach(() => {
+    window.gamestop = null;
+    window.ethereum = null;
+  });
+
   it("detect window.ethereum.isGamestop = true", () => {
     const provider = {
       isGamestop: true,
@@ -34,20 +39,9 @@ describe("tests detectGamestopProvider", () => {
     });
   });
 
-  it("doesn't detect window.gamestop.isGamestop = false, times out with null", () => {
-    const provider = {
-      isGamestop: false,
-    };
-
-    window.gamestop = provider;
-    detectGmeProvider({ timeout: 2000 }).then((p) =>
-      expect(p).toStrictEqual(null)
-    );
-  });
-
   it("detects window.gamestop.isGamestop after timeout", () => {
     const provider = {
-      isGamestop: false,
+      isGamestop: true,
     };
     setTimeout(() => {
       window.gamestop = provider;
@@ -59,7 +53,7 @@ describe("tests detectGamestopProvider", () => {
 
   it("detects window.ethereum.isGamestop after timeout", () => {
     const provider = {
-      isGamestop: false,
+      isGamestop: true,
     };
     setTimeout(() => {
       window.ethereum = provider;
