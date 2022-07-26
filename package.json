@@ -1,0 +1,22 @@
+{
+  "name": "detect-gamestop-provider",
+  "version": "1.0.0",
+  "description": "Allows detection of gamestop provider injection",
+  "scripts": {
+    "build": "tsc src/index.ts && browserify --standalone detectGamestopProvider src/index.js > dist/index.js && rm src/index.js && npm run minify",
+    "minify": "uglifyjs --compress --mangle --output dist/index.min.js -- dist/index.js",
+    "test": "npx jest --runInBand"
+  },
+  "author": "Gamestop",
+  "license": "SEE LICENSE IN <LICENSE.txt>",
+  "main": "dist/index.min.js",
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "babel-jest": "^27.5.1",
+    "browserify": "^17.0.0",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.7.4",
+    "uglify-js": "^3.15.1"
+  }
+}
