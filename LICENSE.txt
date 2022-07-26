@@ -1,0 +1,5 @@
+Your use of this software must not violate any applicable laws, including intellectual property laws, export control or sanctions laws, or other laws in your jurisdiction. You are responsible for making sure that your use of the software is in compliance with laws and any applicable regulations.
+
+You are hereby granted permission to use, copy, modify, and/or distribute this software for any purpose with or without fee, provided that the following copyright notice and permission notice appear in all copies: Copyright © 2022 GME Entertainment, LLC
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, AND ANY WARRANTY OF COMPLIANCE WITH LAW. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM USE OF THIS SOFTWARE, OR LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
